@@ -9,11 +9,11 @@ const SideBar = () => (
   <section id="sidebar">
     <section id="intro">
       <Link to="/" className="logo">
-        <img src={`${PUBLIC_URL}/images/me.jpg`} alt="" />
+        <img src={`${PUBLIC_URL}/images/vishnu_nyc.jpg`} alt="" />
       </Link>
       <header>
-        <h2>Michael D&apos;Angelo</h2>
-        <p><a href="mailto:michael@mldangelo.com">michael@mldangelo.com</a></p>
+        <h2>Vishnu Kulkarni</h2>
+        <p><a href="mailto:vishnu.kulkarni@columbia.edu">vishnu.kulkarni@columbia.edu</a></p>
       </header>
     </section>
 
@@ -34,7 +34,7 @@ const SideBar = () => (
 
     <section id="footer">
       <ContactIcons />
-      <p className="copyright">&copy; Michael D&apos;Angelo <Link to="/">mldangelo.com</Link>.</p>
+      <p className="copyright">&copy; Vishnu Kulkarni <Link to="/">vishnuskulkarni.github.io/me</Link>.</p>
     </section>
   </section>
 );

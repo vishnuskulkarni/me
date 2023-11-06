@@ -79,7 +79,7 @@ Ask me in person for other stories that I'm afraid to share with the internet.
 - doing better.
 - you not checking the commit history for earlier drafts of this file.
 
-# Websites from people I admire
+<!-- # Websites from people I admire
 
 - [Alex Peysakhovich](http://alexpeys.github.io/)
 - [Chris Lengerich](http://www.chrislengerich.com/)
@@ -96,4 +96,4 @@ Ask me in person for other stories that I'm afraid to share with the internet.
 - [Tom Sachs](https://www.tomsachs.org/)
 - [Will Holley](https://willholley.com)
 
-If we are friends and you feel like you belong on this list, you're probably right. Submit a PR, or ask me and I'll add you.
+If we are friends and you feel like you belong on this list, you're probably right. Submit a PR, or ask me and I'll add you. -->
