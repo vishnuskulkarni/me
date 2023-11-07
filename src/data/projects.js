@@ -25,7 +25,7 @@ const data = [
     title: 'Shakespearean Poem Generator',
     subtitle: 'Python, Natural Language Processing',
     // link: 'http://www.spacepotato.org',
-    image: '/images/projects/shakespearepoem.jpg',
+    image: '/images/projects/shakespeare.png',
     date: '2020-08-01',
     desc:
       'Built a model which generates Shakespearean poems from an existing data set of poems using a character-level '
@@ -43,7 +43,7 @@ const data = [
   {
     title: 'JPEG Encoder',
     subtitle: 'Verilog HDL, Image Processing',
-    image: '/images/projects/jpeg3.png',
+    image: '/images/projects/jpegdct.png',
     date: '2018-10-01',
     desc:
       'Programmed a JPEG Encoder using DCT based Encoder Processing steps with Verilog HDL - for efficient image compression.',
