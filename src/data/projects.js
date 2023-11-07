@@ -1,47 +1,52 @@
 // TODO Add a couple lines about each project
 const data = [
   {
-    title: 'Nearest Dollar',
-    subtitle: '2015 BVP Hackathon',
-    image: '/images/projects/nearestdollar.jpg',
-    date: '2015-11-20',
+    title: 'Lunar Lander Problem',
+    subtitle: 'Python, OpenAI Gym, Reinforcement Learning',
+    image: '/images/projects/lunarlander.png',
+    date: '2020-08-01',
     desc:
-      'Built for a social impact hackathon. '
-      + 'NearestDollar connected to your bank accounts, credit cards, '
-      + 'or debit cards and rounded up your purchases to donate the balance to '
-      + 'the charity of your choice.',
+      'Implemented this project as part of my final semester thesis in undergrad. '
+      + 'Implemented a complete Reinforcement Learning task using the LunarLanderEnvironment from OpenAI Gym. '
+      + 'Formalized the reward function and trained the agent to find a robust and efficient policy to land on a marked '
+      + 'landing pad in the lunar environment using the on-policy Expected Sarsa algorithm. '
+      + 'The agent consistently outperformed the baseline.',
   },
   {
-    title: 'Harvest',
-    subtitle: 'Won 3rd. place in 2015 Techcrunch Disrupt SF Hackathon',
-    link: 'https://devpost.com/software/harvest',
-    image: '/images/projects/harvest.jpg',
-    date: '2015-09-20',
+    title: 'Inverted Pendulum Problem',
+    subtitle: 'Python, OpenAI Gym, Reinforcement Learning',
+    // link: 'https://devpost.com/software/harvest',
+    image: '/images/projects/invertedpendulum.gif',
+    date: '2020-08-20',
     desc:
-      'Won ~ $7000 in prizes for an advanced, low cost monitoring solution '
-      + 'for crops. Harvest was designed to catch irrigation leaks, overwatering, '
-      + 'and nutrient deficiencies at an affordable price for the developing world.',
+      'Trained an RL agent to balance a pendulum in the upright position using Softmax Actor-Critic parametrization.',
   },
   {
-    title: 'Space Potato',
-    subtitle: 'A kickstarter funded potato powered weather balloon.',
-    link: 'http://www.spacepotato.org',
-    image: '/images/projects/spacepotato.jpg',
-    date: '2015-06-28',
+    title: 'Shakespearean Poem Generator',
+    subtitle: 'Python, Natural Language Processing',
+    // link: 'http://www.spacepotato.org',
+    image: '/images/projects/shakespearepoem.jpg',
+    date: '2020-08-01',
     desc:
-      'Launched a potato battery powered weather balloon with two cameras '
-      + 'and gps transponder. Resulting photos were published in a coffee table book. '
-      + 'You can email me for a copy.',
+      'Built a model which generates Shakespearean poems from an existing data set of poems using a character-level '
+      + 'language model which uses LSTM cells (2-layer stacked LSTM model to capture long range dependencies).',
   },
   {
-    title: 'Cat Detector',
-    subtitle: 'A convolutional neural network to classify cats! (and dogs)',
-    image: '/images/projects/catdetector.jpg',
-    date: '2015-05-15',
+    title: 'Road Object Detection',
+    subtitle: 'Python, CNNs, TensorFlow',
+    image: '/images/projects/roadobjectyolo.png',
+    date: '2020-09-15',
     desc:
-      'Trained a convolutional neural network to classify between ~ 80 cats breeds. '
-      + 'Over 60,000 cats were classified before server bills made the project too expensive '
-      + 'to continue hosting.',
+      'Built an Object Detection Model using the YOLO Algorithm to detect and classify 80 classes '
+      + 'of objects that can be observed on roads using a car detection dataset and a deep CNN with pre-trained weights.',
+  },
+  {
+    title: 'JPEG Encoder',
+    subtitle: 'Verilog HDL, Image Processing',
+    image: '/images/projects/jpeg3.png',
+    date: '2018-10-01',
+    desc:
+      'Programmed a JPEG Encoder using DCT based Encoder Processing steps with Verilog HDL - for efficient image compression.',
   },
 ];
 

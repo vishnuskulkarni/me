@@ -51,7 +51,7 @@ import dayjs from 'dayjs';
 
 const data = [
   {
-    label: 'Last updated at',
+    label: 'Last updated on',
     key: 'pushed_at',
     link: 'https://github.com/vishnuskulkarni/me/commits',
     format: (x) => dayjs(x).format('MMMM DD, YYYY'),

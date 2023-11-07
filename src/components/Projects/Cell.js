@@ -7,6 +7,7 @@ const Cell = ({ data }) => (
     <article className="mini-post">
       <header>
         <h3><a href={data.link}>{data.title}</a></h3>
+        <p>{data.subtitle}</p>
         <time className="published">{dayjs(data.date).format('MMMM, YYYY')}</time>
       </header>
       <a href={data.link} className="image">
@@ -26,6 +27,7 @@ Cell.propTypes = {
     image: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
   }).isRequired,
 };
 
