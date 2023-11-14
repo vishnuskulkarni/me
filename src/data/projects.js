@@ -20,7 +20,7 @@ const data = [
     date: '2023-04-01',
     desc:
       'Leveraged machine learning methods, such as Random Forests, SVMs and TF-IDF Vectorizations,'
-      + 'to train classifiers to predict media publication based on article text. Interpreting the features and/or thresholds'
+      + 'to train classifiers to predict media publication based on article text. Interpreting the features and/or thresholds '
       + 'Formalized the reward function and trained the agent to find a robust and efficient policy to land on a marked '
       + 'used for predicting media outlets may provide valuable insight into prevalent biases.',
   },
@@ -53,7 +53,7 @@ const data = [
     date: '2023-04-01',
     desc:
       'Built a Waste Bottle Classifier system using Deep Learning, a Raspberry Pi 3B, and a USB camera module. '
-      + 'The proposed system utilizes a pre-trained and fine tuned MobileNet model to classify recyclable bottles in real-time into four classes: PET, HDPEM, Glass, and Aluminium Cans.'
+      + 'The proposed system utilizes a pre-trained and fine tuned MobileNet model to classify recyclable bottles in real-time into four classes: PET, HDPEM, Glass, and Aluminium Cans. '
       + 'All data used for training was collected and preprocessed by us. MobileNet model was quantised and converted to a TF Lite model, which maintained a 96.11% classification accuracy on test images.',
   },
   {

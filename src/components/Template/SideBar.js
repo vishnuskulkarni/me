@@ -19,11 +19,18 @@ const SideBar = () => (
 
     <section className="blurb">
       <h2>About</h2>
-      <p>Hi, I&apos;m Michael. I am a <a href="https://icme.stanford.edu/">Stanford ICME</a> graduate, YC Alumni,
+      {/* <p>Hi, I&apos;m Michael. I am a <a href="https://icme.stanford.edu/">Stanford ICME</a> graduate, YC Alumni,
         and the VP of Engineering at <a href="https://smileidentity.com">Smile Identity</a>. Previously,
         I was the co-founder and CTO of <a href="https://arthena.com">Arthena</a>
         , co-founder of <a href="https://matroid.com">Matroid</a>, and worked at
         {' '}<a href="https://planet.com">Planet</a> and <a href="https://facebook.com">Facebook</a>.
+      </p> */}
+      <p>
+        Hi, I&apos;m Vishnu. I am currently pursuing my Master&apos;s degree
+        in Electrical Engineering,
+        with a specialisation in AI and Machine Learning at <a href="https://www.ee.columbia.edu/ms-program-ee">Columbia University</a>.
+        I graduate this fall and I am actively seeking full-time roles in the field of AI,
+        Machine Learning and Software Engineering (for AI) starting February 2024.
       </p>
       <ul className="actions">
         <li>
