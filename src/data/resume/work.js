@@ -39,11 +39,23 @@ const work = [
     url: 'https://www.worxogo.com/',
     startDate: '2022-02-01',
     endDate: '2022-05-01',
-    summary: `Skeptical Investments is a micro-vc fund focused on Angel, Seed, and Series-A
-    YC companies.`,
+    summary: '',
     highlights: [
-      'Created the InstaSafe. Fast, automated investment docs for YC companies.',
-      'Advise several startups in the fund.',
+      'Worxogo required a cloud based recommendation system for their production uses. The project was aimed at analysing the use cases and capabilities of AWS Personalize in developing ML Pipelines for recommendation systems.',
+      'Implemented and trained a movie recommendation system using AWS Personalize using the MovieLens dataset.',
+      'Experimented with different models and hyperparameters for different use cases such as ranking and recommendation of similar items and popular items users had viewed.',
+    ],
+  },
+  {
+    name: 'Hearthealth Technologies',
+    position: 'Intern',
+    url: 'https://hearthealthtech.com/',
+    startDate: '2021-11-01',
+    endDate: '2022-01-01',
+    summary: '',
+    highlights: [
+      'Helped set up and evaluate an inferencing pipeline with docker images for the segmentation and assessment of abdominal fat images (Dixon MRI scans) for a pharma clinical trial imaging based study.',
+      'Worked with datasets of MRI scans (of the myocardium and abdominal fat), installed docker images and analysed (and inferenced) the results of the deep learning pipeline (for segmentation of MRI scans and quantification of image biomarkers such as fibrosis and fat percentage)',
     ],
   },
   {
@@ -52,17 +64,15 @@ const work = [
     url: 'https://crcs.seas.harvard.edu/research',
     startDate: '2021-01-01',
     endDate: '2021-10-01',
-    summary: `Arthena is a Series A Company funded by <a href="https://www.anthemis.com/">Athemis</a>,
-    <a href="https://foundationcapital.com">Foundation Capital</a>, and <a href="https://ycombinator.com/">YC</a>.
-    We develop quantitative strategies to predict the value of fine art and build investment products.
-    I ran a 20-person product and engineering org for 8 years. We were acquired by
-    <a href="https://www.masterworks.com/">Masterworks</a> in 2023.`,
+    summary: `The <a href="https://papers.nips.cc/paper/2020/file/b460cf6b09878b00a3e1ad4c72344ccd-Paper.pdf">paper</a> proposes a new setting of restless multi-armed bandits called Collapsing Bandits.
+    The algorithm was evaluated on several data distributions including data
+    from a real-world healthcare task in which a worker must monitor and deliver
+    interventions to maximize their patients’ adherence to tuberculosis medication.
+    `,
     highlights: [
-      'Built production, online, end-to-end optimized machine learning pipelines for time-series prediction.',
-      'Designed micro-service architecture around: data collection, data integrity, feature engineering, research, strategy, backtesting, deployment, and reporting.',
-      "Set and communicated team priorities that supported the broader organization's goals. Aligned strategy, processes, and decision-making across teams.",
-      "Set clear expectations with individuals based on their level and role and aligned them to the broader organization's goals. Met regularly with individuals to discuss performance and development, and provided feedback and coaching.",
-      'Developed the long-term technical vision and roadmap within, and often beyond, the scope of my teams. Evolved the roadmap to meet anticipated future requirements and infrastructure needs.',
+      "Worked on research tasks related to the paper 'Collapsing Bandits and Their Application to Public Health Interventions'.",
+      'Implemented a method to better represent data in the form of modified histogram plots to compare the performance of different whittle algorithms in handling fairness and risk sensitivity concerns.',
+      'Assisted in the implementation of a modified whittle index and developing a proof to check for threshold optimality over a finite horizon.',
     ],
   },
   {
@@ -70,14 +80,12 @@ const work = [
     position: 'Deep Learning Intern',
     url: 'https://www.kpit.com/solutions/autonomous-driving-adas/',
     startDate: '2020-01-01',
-    endDate: '2018-07-01',
-    summary: `Enveritas is a non-profit that works with coffee farmers to improve their livelihoods.
-    I joined on day one and helped build a variety of tools to collect and analyze data. I also advised
-    on technical strategy, helped hire engineers, and advised on their YC application.`,
+    endDate: '2020-07-01',
+    summary: '',
     highlights: [
-      'Trained a model for the Brazilian Coffee Scenes Dataset with better than state of the art accuracy.',
-      'Collected training sets on the ground in Uganda. Built dashboards to visualize work of surveyors using Flask, React, and D3.',
-      'Performed supporting analysis to ensure data integrity using Pandas, t-SNE, SVM\'s, and other techniques.',
+      'Built image classification and object detection detection models (using CNNs) for detection of road signs and vehicles.',
+      'Trained a Reinforcement Learning (RL) agent to navigate through a grid-maze environment using Dynamic Programming, Monte-Carlo, Q-learning, Dyna-Q and Dyna-Q+ algorithms and analysed the difference in efficiencies.',
+      'Ideated the formulation of autonomous braking as a RL problem',
     ],
   },
 ];

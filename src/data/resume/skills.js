@@ -250,3 +250,160 @@
 // }));
 
 // export { categories, skills };
+
+const skills = [
+  {
+    title: 'Python',
+    competency: 5,
+    category: ['Languages'],
+  },
+  {
+    title: 'R',
+    competency: 4,
+    category: ['Languages'],
+  },
+  {
+    title: 'Javascript',
+    competency: 2,
+    category: ['Languages'],
+  },
+  {
+    title: 'C++',
+    competency: 1,
+    category: ['Languages'],
+  },
+  {
+    title: 'Latex',
+    competency: 3,
+    category: ['Languages'],
+  },
+  {
+    title: 'Amazon Web Services',
+    competency: 2,
+    category: ['Cloud'],
+  },
+  {
+    title: 'HTML + CSS/SCSS',
+    competency: 2,
+    category: ['Languages'],
+  },
+  {
+    title: 'Verilog HDL',
+    competency: 2,
+    category: ['Languages'],
+  },
+  {
+    title: 'Google Cloud Platform',
+    competency: 4,
+    category: ['Cloud'],
+  },
+  {
+    title: 'Microsoft Azure',
+    competency: 3,
+    category: ['Cloud'],
+  },
+  {
+    title: 'Azure Cosmos DB',
+    competency: 3,
+    category: ['Cloud'],
+  },
+  {
+    title: 'Tensorflow',
+    competency: 4,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'Keras',
+    competency: 4,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'PyTorch',
+    competency: 3,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'Tensorflow',
+    competency: 2,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'Scikit-learn',
+    competency: 4,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'SciPy',
+    competency: 3,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'NumPy',
+    competency: 5,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'Pandas',
+    competency: 4,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'Seaborn',
+    competency: 4,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'Matplotlib',
+    competency: 4,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'D3.js',
+    competency: 3,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'ReactJS',
+    competency: 2,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'Tensorflow Lite (TinyML)',
+    competency: 2,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'Apache Spark (PySpark, Airflow)',
+    competency: 2,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'Hadoop',
+    competency: 2,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'Apache Spark (PySpark, Airflow)',
+    competency: 2,
+    category: ['Frameworks/Libraries'],
+  },
+].map((skill) => ({ ...skill, category: skill.category.sort() }));
+
+// this is a list of colors that I like. The length should be === to the
+// number of categories. Re-arrange this list until you find a pattern you like.
+const colors = [
+  '#6968b3',
+  '#d75858',
+  '#747fff',
+  '#64cb7b',
+  '#515dd4',
+];
+
+const categories = [
+  ...new Set(skills.flatMap(({ category }) => category)),
+].sort().map((category, index) => ({
+  name: category,
+  color: colors[index],
+}));
+
+export { categories, skills };
