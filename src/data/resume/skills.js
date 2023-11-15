@@ -348,7 +348,7 @@ const skills = [
     category: ['Frameworks/Libraries'],
   },
   {
-    title: 'Pinecone (Vector Database',
+    title: 'Pinecone (Vector Database)',
     competency: 4,
     category: ['Frameworks/Libraries'],
   },

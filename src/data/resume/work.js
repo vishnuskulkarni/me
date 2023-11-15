@@ -18,19 +18,12 @@ const work = [
     url: 'https://www.financialfinesse.com/',
     startDate: '2022-05-01',
     endDate: '2022-09-01',
-    summary: `<a href="https://www.financialfinesse.com/">Financial Finesse</a> is a financial advising company that aims to provide unbiased financial coaching to employees of large companies a service, as one of their verticals
-    used by hundreds of thousands of people every day to access financial services. As VP of Engineering,
-    I provide technical leadership on high-impact projects, influence and coach a distributed team of engineers,
-    and facilitate alignment and clarity across teams on goals, outcomes, and timelines. I was promoted
-    from Director of Engineering to VP of Engineering in April 2022, and then to VP of Engineering and Head
-    of AI in November 2022. I lead a 20+ person engineering org. I directly manage ~8 engineers and spend
-    >50% of my time writing code.`,
+    summary: `<a href="https://www.financialfinesse.com/">Financial Finesse</a> is a Financial Advising company that aims to provide
+    unbiased and independent financial coaching to employees of large companies as a service, as one of their business verticals.
+    `,
     highlights: [
-      'Redesigned engineering processes for bug tracking, meetings, and standups. Improved culture for code reviews, blameless post-mortems, and retrospectives.',
-      'Re-architected engineering hiring and onboarding processes. Recruited several strong engineers.',
-      'Reorged engineering teams to focus on product delivery. Created a new team to focus on ML infrastructure.',
-      'Lead re-design of internal APIs for inference. Built new computer vision pipelines for industry leading certifications (NIST/iBeta liveness).',
-      'Pitched, designed, developed, deployed, and maintain a fraud detection product based on 1-N facial recognition using embeddings and vector search.',
+      'Assisted in the development and integration of an AI powered financial coach (AskAimee) using LangChain and Pinecone (including validation and testing). Also carried out API Testing, data analysis and cleansing and backend software developement. ',
+      'AskAimee and Financial Finesse coaching services are used by employees of Fortune 500 companies (Meta, McKinsey, the NFL, etc.)',
     ],
   },
   {
@@ -39,9 +32,9 @@ const work = [
     url: 'https://www.worxogo.com/',
     startDate: '2022-02-01',
     endDate: '2022-05-01',
-    summary: '',
+    summary: `Worxogo required a cloud based recommendation system for their production uses. The project was aimed at analysing the use cases and capabilities of AWS Personalize in developing ML Pipelines for recommendation systems.
+    `,
     highlights: [
-      'Worxogo required a cloud based recommendation system for their production uses. The project was aimed at analysing the use cases and capabilities of AWS Personalize in developing ML Pipelines for recommendation systems.',
       'Implemented and trained a movie recommendation system using AWS Personalize using the MovieLens dataset.',
       'Experimented with different models and hyperparameters for different use cases such as ranking and recommendation of similar items and popular items users had viewed.',
     ],

@@ -46,7 +46,7 @@ const data = [
       'Trained an RL agent to balance a pendulum in the upright position using Softmax Actor-Critic parametrization.',
   },
   {
-    title: 'Waste Bottle Classifier Model Implemented on a Raspberry Pi Modul',
+    title: 'Waste Bottle Classifier Model Implemented on a Raspberry Pi Module',
     subtitle: 'Python, TFLite, Deep Learning, AI on an Embedded Platform',
     link: 'https://drive.google.com/drive/folders/1uftWeD7cJ5vB9fVD7LXTCHt3Gp-QEreM?usp=sharing',
     image: '/images/projects/embeddedai.jpeg',
