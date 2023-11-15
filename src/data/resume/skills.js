@@ -323,11 +323,6 @@ const skills = [
     category: ['Frameworks/Libraries'],
   },
   {
-    title: 'Tensorflow',
-    competency: 2,
-    category: ['Frameworks/Libraries'],
-  },
-  {
     title: 'Scikit-learn',
     competency: 4,
     category: ['Frameworks/Libraries'],
@@ -344,6 +339,16 @@ const skills = [
   },
   {
     title: 'Pandas',
+    competency: 4,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'LangChain',
+    competency: 4,
+    category: ['Frameworks/Libraries'],
+  },
+  {
+    title: 'Pinecone (Vector Database',
     competency: 4,
     category: ['Frameworks/Libraries'],
   },
@@ -383,9 +388,44 @@ const skills = [
     category: ['Frameworks/Libraries'],
   },
   {
-    title: 'Apache Spark (PySpark, Airflow)',
+    title: 'Git',
+    competency: 4,
+    category: ['Tools'],
+  },
+  {
+    title: 'Adobe Photoshop',
+    competency: 3,
+    category: ['Tools'],
+  },
+  {
+    title: 'Microsoft Visual Studio',
+    competency: 3,
+    category: ['Tools'],
+  },
+  {
+    title: 'Microsoft Office',
+    competency: 3,
+    category: ['Tools'],
+  },
+  {
+    title: 'AutoCAD',
     competency: 2,
-    category: ['Frameworks/Libraries'],
+    category: ['Tools'],
+  },
+  {
+    title: 'MATLAB',
+    competency: 2,
+    category: ['Tools'],
+  },
+  {
+    title: 'Postman API Testing',
+    competency: 3,
+    category: ['Tools'],
+  },
+  {
+    title: 'Jupyter',
+    competency: 4,
+    category: ['Tools'],
   },
 ].map((skill) => ({ ...skill, category: skill.category.sort() }));
 

@@ -18,7 +18,7 @@ const work = [
     url: 'https://www.financialfinesse.com/',
     startDate: '2022-05-01',
     endDate: '2022-09-01',
-    summary: `Smile builds machine learning APIs to compare user submitted photos to ID documents. Our APIs are
+    summary: `<a href="https://www.financialfinesse.com/">Financial Finesse</a> is a financial advising company that aims to provide unbiased financial coaching to employees of large companies a service, as one of their verticals
     used by hundreds of thousands of people every day to access financial services. As VP of Engineering,
     I provide technical leadership on high-impact projects, influence and coach a distributed team of engineers,
     and facilitate alignment and clarity across teams on goals, outcomes, and timelines. I was promoted
