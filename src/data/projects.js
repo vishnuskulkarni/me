@@ -21,6 +21,7 @@ const data = [
     desc:
       'Leveraged machine learning methods, such as Random Forests, SVMs and TF-IDF Vectorizations,'
       + 'to train classifiers to predict media publication based on article text. Interpreting the features and/or thresholds '
+      + 'Formalized the reward function and trained the agent to find a robust and efficient policy to land on a marked '
       + 'used for predicting media outlets may provide valuable insight into prevalent biases.',
   },
   {
