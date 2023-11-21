@@ -26,7 +26,7 @@ const Index = () => (
         view <Link to="/stats">site statistics</Link>, {' '}
         or <Link to="/contact">contact</Link> me.
       </p>
-      <p> If you wish to download my resume, you can do so <a href="https://github.com/vishnuskulkarni/">here</a>.</p>
+      <p> If you wish to download my resume, you can do so <a href="https://drive.google.com/file/d/19BCc-sB2XOXGD3WTjOzINnWhEnoJeM4s/view?usp=sharing">here</a>.</p>
     </article>
   </Main>
 );
