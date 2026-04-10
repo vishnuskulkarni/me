@@ -26,11 +26,14 @@ const SideBar = () => (
         {' '}<a href="https://planet.com">Planet</a> and <a href="https://facebook.com">Facebook</a>.
       </p> */}
       <p>
-        Hi, I&apos;m Vishnu. I am currently pursuing my Master&apos;s degree
-        in Electrical Engineering,
-        with a specialisation in AI and Machine Learning at <a href="https://www.ee.columbia.edu/ms-program-ee">Columbia University</a>.
-        I graduate this fall and I am actively seeking full-time roles in the field of AI,
-        Machine Learning and Software Engineering (for AI) starting February 2024.
+        Hi, I&apos;m Vishnu. I&apos;m a Data Scientist at the{' '}
+        <a href="https://d3.harvard.edu/about-us/">
+          Digital Data Design Institute (D^3) at Harvard Business School
+        </a>, where I work on applied research exploring how Generative AI
+        influences innovation and decision-making in real-world settings.
+        I earned my Master&apos;s degree in Electrical Engineering from{' '}
+        <a href="https://www.ee.columbia.edu/ms-program-ee">Columbia University</a>,
+        specializing in AI and Machine Learning.
       </p>
       <ul className="actions">
         <li>

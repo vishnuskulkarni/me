@@ -19,6 +19,12 @@ const Index = () => (
           </p>
         </div>
       </header>
+      <p>
+        I love working at the intersection of AI, data, and people. I&apos;m interested
+        in industry-facing roles where AI systems are built, deployed, and translated
+        into real-world impact across AI Solutions, Data Science, and Forward Deployed
+        Engineering.
+      </p>
       <p> Please feel free to read more <Link to="/about">about me</Link>,
         or you can check out my {' '}
         <Link to="/resume">resume</Link>, {' '}
@@ -26,7 +32,7 @@ const Index = () => (
         view <Link to="/stats">site statistics</Link>, {' '}
         or <Link to="/contact">contact</Link> me.
       </p>
-      <p> If you wish to download my resume, you can do so <a href="https://drive.google.com/file/d/1FO9GV30GncCIPikEFa-5ZGnrtQ14CS1A/view?usp=sharing">here</a>.</p>
+      <p> If you wish to download my resume, you can do so <a href="https://drive.google.com/file/d/1wyoztsBbqxKl5jFxzplp_pJunpWkl4Hh/view?usp=sharing">here</a>.</p>
     </article>
   </Main>
 );
