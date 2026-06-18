@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" font-family="'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="logo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2e59ba"/>
+      <stop offset="1" stop-color="#4a72d0"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f0f2f6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="8" fill="url(#logo)"/>
+
+  <!-- eyebrow -->
+  <text x="90" y="150" fill="#2e59ba" font-size="26" font-weight="700" letter-spacing="6" font-family="'Courier New',monospace">PROJECT · MULTI-AGENT RESEARCH SYSTEM</text>
+
+  <!-- logo + wordmark -->
+  <rect x="90" y="200" width="92" height="92" rx="20" fill="url(#logo)"/>
+  <text x="136" y="266" fill="#ffffff" font-size="56" font-weight="600" text-anchor="middle" font-family="'Raleway',Helvetica,sans-serif">M</text>
+  <text x="210" y="262" fill="#1a1d24" font-size="78" font-weight="800" letter-spacing="1">MARS</text>
+  <text x="212" y="312" fill="#6e7681" font-size="30" font-weight="500">Scores research directions on real evidence</text>
+
+  <!-- ranked-directions motif -->
+  <g transform="translate(90,388)" font-family="'Courier New',monospace">
+    <!-- row 1: high -->
+    <text x="0" y="20" fill="#9aa1ab" font-size="20" letter-spacing="3">NOVELTY</text>
+    <rect x="180" y="6" width="640" height="14" rx="7" fill="#eef0f3"/>
+    <rect x="180" y="6" width="550" height="14" rx="7" fill="#2e59ba"/>
+    <text x="850" y="20" fill="#1f7a5c" font-size="20" font-weight="700">HIGH</text>
+
+    <!-- row 2 -->
+    <text x="0" y="70" fill="#9aa1ab" font-size="20" letter-spacing="3">FEASIBILITY</text>
+    <rect x="180" y="56" width="640" height="14" rx="7" fill="#eef0f3"/>
+    <rect x="180" y="56" width="500" height="14" rx="7" fill="#2e59ba"/>
+    <text x="850" y="70" fill="#1f7a5c" font-size="20" font-weight="700">HIGH</text>
+
+    <!-- row 3 -->
+    <text x="0" y="120" fill="#9aa1ab" font-size="20" letter-spacing="3">DATA FIT</text>
+    <rect x="180" y="106" width="640" height="14" rx="7" fill="#eef0f3"/>
+    <rect x="180" y="106" width="525" height="14" rx="7" fill="#2e59ba"/>
+    <text x="850" y="120" fill="#b5832f" font-size="20" font-weight="700">MED</text>
+
+    <!-- row 4: dead-end -->
+    <text x="0" y="170" fill="#9aa1ab" font-size="20" letter-spacing="3">ROBUSTNESS</text>
+    <rect x="180" y="156" width="640" height="14" rx="7" fill="#eef0f3"/>
+    <rect x="180" y="156" width="150" height="14" rx="7" fill="#b23b3b"/>
+    <text x="850" y="170" fill="#b23b3b" font-size="20" font-weight="700">DEAD-END</text>
+  </g>
+
+  <!-- footer strip (kept low-contrast; card overlays a description band here) -->
+  <text x="90" y="700" fill="#454a54" font-size="30" font-weight="600">Interactive demo — runs analysis, flags dead ends, shows its evidence</text>
+</svg>

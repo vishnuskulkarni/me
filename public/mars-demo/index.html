@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MARS — interactive demo · Vishnu Kulkarni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700|Raleway:400,600,800,900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f0f2f6;            /* streamlit app bg */
+    --panel:#ffffff;
+    --sidebar:#fafbfc;
+    --ink:#1a1d24; --soft:#454a54; --muted:#6e7681; --faint:#9aa1ab;
+    --line:#e4e7ec; --line-soft:#eef0f3;
+    --accent:#2e59ba; --accent-2:#4a72d0; --accent-soft:#e8eefb;
+    --signal:#1f7a5c; --warn:#b5832f; --kill:#b23b3b; --kill-soft:#f7e9e8; --warn-soft:#fbf3e3;
+    --sans:'Source Sans Pro',Helvetica,sans-serif;
+    --serif:'Raleway',Helvetica,sans-serif;
+    --mono:'Courier New',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+
+  /* intro band above the app frame */
+  .intro{max-width:1080px;margin:0 auto;padding:40px 24px 18px}
+  .intro .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+  .intro h1{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4.5vw,40px);line-height:1.08;letter-spacing:-.01em;margin:0 0 10px}
+  .intro p{color:var(--soft);max-width:660px;margin:0 0 4px}
+  .demo-note{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:12.5px;color:var(--warn);background:var(--warn-soft);border:1px solid #ecdcc0;padding:6px 12px;border-radius:999px;font-family:var(--mono);letter-spacing:.04em}
+
+  /* the app frame mimics a browser window holding the streamlit app */
+  .frame{max-width:1080px;margin:14px auto 60px;padding:0 24px}
+  .browser{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);box-shadow:0 1px 0 rgba(0,0,0,.02),0 24px 60px -34px rgba(20,30,25,.35)}
+  .chrome{display:flex;align-items:center;gap:8px;padding:11px 15px;background:#ebedf1;border-bottom:1px solid var(--line)}
+  .chrome .d{width:11px;height:11px;border-radius:50%}
+  .chrome .d.r{background:#f0685f}.chrome .d.y{background:#f6bd4f}.chrome .d.g{background:#62c554}
+  .chrome .url{margin-left:10px;flex:1;background:#fff;border:1px solid var(--line);border-radius:7px;padding:5px 12px;font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}
+  .chrome .url .lock{color:var(--signal);font-size:11px}
+
+  /* streamlit-style two-column layout */
+  .app{display:grid;grid-template-columns:266px 1fr;min-height:560px}
+  .sidebar{background:var(--sidebar);border-right:1px solid var(--line);padding:20px 18px}
+  .sb-brand{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .sb-logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:16px}
+  .sb-brand .nm{font-weight:700;font-size:16px;letter-spacing:-.01em}
+  .sb-brand .nm small{display:block;font-weight:400;font-size:10.5px;color:var(--faint);font-family:var(--mono);letter-spacing:.04em;margin-top:1px}
+  .sb-sec{margin-top:22px}
+  .sb-h{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}
+  .route{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;padding:5px 0;border-bottom:1px dashed var(--line-soft)}
+  .route:last-child{border-bottom:none}
+  .route .a{color:var(--soft)}
+  .route .m{font-family:var(--mono);font-size:11px;color:var(--accent);background:var(--accent-soft);padding:2px 7px;border-radius:5px}
+  .sb-stat{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);padding:3px 0}
+  .sb-stat b{color:var(--ink);font-weight:600}
+  .sb-foot{margin-top:24px;font-size:11px;color:var(--faint);line-height:1.5;border-top:1px solid var(--line-soft);padding-top:14px}
+
+  /* main panel */
+  .main{padding:26px 30px 34px;overflow:hidden}
+  .main h2{font-family:var(--serif);font-weight:600;font-size:25px;margin:0 0 3px;letter-spacing:-.01em}
+  .main .sub{color:var(--muted);font-size:13.5px;margin:0 0 22px}
+  .lab{font-weight:600;font-size:13px;margin:0 0 6px;display:flex;align-items:center;gap:7px}
+  .lab .req{color:var(--accent);font-size:11px}
+  .ta{width:100%;border:1px solid var(--line);border-radius:9px;padding:12px 14px;font-family:var(--serif);font-size:15px;line-height:1.45;color:var(--ink);background:#fcfdfd;resize:none}
+  .ta:focus{outline:none;border-color:var(--accent-2);box-shadow:0 0 0 3px var(--accent-soft)}
+  .uploads{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+  .drop{border:1.5px dashed var(--line);border-radius:9px;padding:14px;background:#fcfdfd}
+  .drop .dh{font-size:12.5px;font-weight:600;color:var(--soft);display:flex;align-items:center;gap:7px}
+  .drop .file{display:flex;align-items:center;gap:8px;margin-top:9px;font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line-soft);border-radius:6px;padding:5px 9px}
+  .drop .file .x{margin-left:auto;color:var(--faint)}
+  .ic{color:var(--accent)}
+  .controls{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:6px 0 20px}
+  .seg{display:flex;background:#eef0f3;border-radius:9px;padding:3px;gap:3px}
+  .seg button{flex:1;border:none;background:none;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--muted);padding:7px 4px;border-radius:6px;cursor:pointer;transition:.15s}
+  .seg button.on{background:#fff;color:var(--accent);box-shadow:0 1px 3px rgba(0,0,0,.08);font-weight:600}
+  .field-init{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+  .field-init input{border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-family:var(--sans);font-size:13px;width:120px;background:#fcfdfd}
+  .field-init input:focus{outline:none;border-color:var(--accent-2)}
+  .field-init label{font-size:12.5px;color:var(--muted)}
+
+  .run{font-family:var(--sans);font-weight:600;font-size:15px;color:#fff;background:var(--accent);border:none;border-radius:9px;padding:12px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:.15s}
+  .run:hover{background:#244a9e}
+  .run:active{transform:translateY(1px)}
+  .run[disabled]{opacity:.6;cursor:default}
+
+  /* progress + report */
+  .stream{margin-top:22px;display:none}
+  .stream.show{display:block}
+  .pstage{display:grid;grid-template-columns:22px 1fr;gap:12px;padding:9px 0;opacity:.3;transition:opacity .35s}
+  .pstage.on,.pstage.ok{opacity:1}
+  .pm{display:flex;justify-content:center}
+  .pm .o{width:9px;height:9px;border-radius:50%;background:#d3d7dd;margin-top:5px;transition:.3s}
+  .pstage.on .o{background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);animation:pp 1.1s infinite}
+  .pstage.ok .o{background:var(--signal)}
+  @keyframes pp{50%{box-shadow:0 0 0 7px transparent}}
+  .pstage .pa{font-size:13.5px;font-weight:600}
+  .pstage .pa .pr{font-family:var(--mono);font-size:10px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-left:7px;font-weight:400}
+  .pstage .pt{font-size:13px;color:var(--soft);margin-top:2px}
+  .pstage .pt .n{font-family:var(--mono);font-size:12px;color:var(--accent);background:var(--accent-soft);padding:1px 5px;border-radius:4px}
+  .pstage .pt .n.k{color:var(--kill);background:var(--kill-soft)}
+
+  .report{margin-top:8px;display:none}
+  .report.show{display:block;animation:fade .5s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .rep-head{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:8px}
+  .rep-head h3{font-family:var(--serif);font-size:19px;margin:0;font-weight:600}
+  .rep-head .dl{margin-left:auto;font-size:12px;font-family:var(--mono);color:var(--accent);border:1px solid var(--accent-soft);border-radius:7px;padding:5px 11px;cursor:default}
+  .rep-h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin:18px 0 11px}
+  .dir{border:1px solid var(--line);border-radius:11px;padding:14px 15px;margin-bottom:10px;background:#fff}
+  .dir.flagged{background:var(--warn-soft);border-color:#eee0c8}
+  .dir.dead{background:var(--kill-soft);border-color:#eccfcd}
+  .dh2{display:flex;gap:12px;justify-content:space-between;align-items:flex-start}
+  .dt{font-weight:600;font-size:14.5px;line-height:1.35}
+  .tier{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap;margin-top:1px}
+  .tier.high{background:var(--accent-soft);color:var(--signal)}
+  .tier.med{background:#fbf1dd;color:var(--warn)}
+  .tier.low{background:var(--kill-soft);color:var(--kill)}
+  .dwhy{font-size:13px;color:var(--muted);margin-top:7px}
+  .bars{display:flex;gap:12px;margin-top:11px;flex-wrap:wrap}
+  .bar{flex:1;min-width:104px}
+  .bar .bl{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);display:flex;justify-content:space-between;margin-bottom:4px}
+  .trk{height:5px;background:var(--line-soft);border-radius:999px;overflow:hidden}
+  .fl{height:100%;border-radius:999px;background:var(--accent);width:0;transition:width .9s cubic-bezier(.2,.7,.2,1)}
+  .verdict{font-size:13.5px;color:var(--soft);background:var(--accent-soft);border-left:3px solid var(--accent);padding:12px 14px;border-radius:0 8px 8px 0;margin-top:14px}
+  .verdict b{color:var(--ink)}
+
+  .below{max-width:1080px;margin:0 auto;padding:8px 24px 70px;color:var(--muted);font-size:13.5px}
+  .below a{color:var(--accent)}
+
+  @media (max-width:780px){
+    .app{grid-template-columns:1fr}
+    .sidebar{border-right:none;border-bottom:1px solid var(--line)}
+    .uploads,.controls{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+  <div class="intro">
+    <p class="eyebrow">Project · Multi-agent research system</p>
+    <h1>MARS — interactive demo</h1>
+    <p>This is a faithful, clickable mock of the actual MARS web app used internally at the lab. Hit <b>Run MARS</b> to watch it work through a sample question and render its report.</p>
+    <span class="demo-note">● Demo · synthetic data · no uploads or live models</span>
+  </div>
+
+  <div class="frame">
+    <div class="browser">
+      <div class="chrome">
+        <span class="d r"></span><span class="d y"></span><span class="d g"></span>
+        <span class="url"><span class="lock">🔒</span> mars.lab.harvard — internal</span>
+      </div>
+
+      <div class="app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <div class="sb-brand">
+            <div class="sb-logo">M</div>
+            <div class="nm">MARS<small>research system</small></div>
+          </div>
+
+          <div class="sb-sec">
+            <div class="sb-h">Model routing</div>
+            <div class="route"><span class="a">Literature</span><span class="m">claude</span></div>
+            <div class="route"><span class="a">Scout (web)</span><span class="m">claude</span></div>
+            <div class="route"><span class="a">Data analyst</span><span class="m">claude</span></div>
+            <div class="route"><span class="a">Hypothesis</span><span class="m">claude</span></div>
+            <div class="route"><span class="a">Critique</span><span class="m">claude</span></div>
+            <div class="route"><span class="a">Red-team</span><span class="m">claude</span></div>
+          </div>
+
+          <div class="sb-sec">
+            <div class="sb-h">Run settings</div>
+            <div class="sb-stat"><span>Service account</span><b>active</b></div>
+            <div class="sb-stat"><span>Max passes</span><b>3</b></div>
+            <div class="sb-stat"><span>Cost ceiling</span><b>on</b></div>
+          </div>
+
+          <div class="sb-foot">Runs on a lab-managed VM. Researchers open one link on the Harvard network — no install, no key, no setup.</div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main">
+          <h2>New research run</h2>
+          <p class="sub">Submit a question, your literature, and your data. MARS returns ranked directions with its evidence shown.</p>
+
+          <p class="lab">Research question <span class="req">required</span></p>
+          <textarea class="ta" rows="2" readonly>What individual-level factors drive monthly output among remote and hybrid knowledge workers — and which are most worth a causal study with this data?</textarea>
+
+          <div class="uploads">
+            <div class="drop">
+              <div class="dh"><span class="ic">¶</span> Literature (PDF)</div>
+              <div class="file">📄 autonomy_review.pdf <span class="x">✕</span></div>
+              <div class="file">📄 meeting_load.pdf <span class="x">✕</span></div>
+            </div>
+            <div class="drop">
+              <div class="dh"><span class="ic">▦</span> Data (CSV / XLSX)</div>
+              <div class="file">📄 remote_work_study.csv · 240×8 <span class="x">✕</span></div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <div>
+              <p class="lab">Scoring preset</p>
+              <div class="seg" id="preset">
+                <button class="on" data-v="balanced">Balanced</button>
+                <button data-v="novelty">Novelty</button>
+                <button data-v="feas">Feasibility</button>
+              </div>
+            </div>
+            <div>
+              <p class="lab">Strategy</p>
+              <div class="seg" id="strat">
+                <button class="on" data-v="aria">ARIA (fixed)</button>
+                <button data-v="dyn">Dynamic</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-init">
+            <label>Your initials</label>
+            <input type="text" value="VK" readonly>
+          </div>
+
+          <button class="run" id="run"><span>▶</span> Run MARS</button>
+
+          <!-- progress -->
+          <div class="stream" id="stream"></div>
+          <!-- report -->
+          <div class="report" id="report"></div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <div class="below">
+    The real MARS runs internally at HBS on a lab-managed VM. This demo replays one run on synthetic data so the interface and output are visible without uploading anything. <a href="https://github.com/vishnuskulkarni">See the code on GitHub →</a>
+  </div>
+
+<script>
+const STAGES=[
+  {a:"Orchestrator",r:"plan",t:"2 papers, 1 dataset (240×8). Dispatching literature + data branches in parallel.",ms:850},
+  {a:"Literature",r:"reads papers",t:"Autonomy→output well-supported. Team size flagged weak. Meeting-load evidence mixed — an open gap.",ms:1300},
+  {a:"Scout",r:"web",t:"Autonomy link is well-trodden; no clean public dataset jointly measures meeting hours + autonomy + tenure. Gap is real.",ms:1250},
+  {a:"Data analyst",r:"executes python",code:true,ms:2400,lines:[
+    'OLS: <span class="n">output ~ autonomy + meeting_hours + tenure</span>',
+    'autonomy β=<span class="n">+0.45</span> · meeting_hours β=<span class="n">−1.40</span> (p&lt;.001)',
+    'team_size β=<span class="n">+0.02</span> (p=.78) → <b>null, reported</b>',
+    'perks look positive alone; <span class="n k">effect vanishes</span> once autonomy added'
+  ]},
+  {a:"Hypothesis",r:"synthesize",t:"5 candidate directions tied to gaps + data affordances.",ms:1150},
+  {a:"Critique",r:"gate",t:"Objection: 'perks raise output' is confounded by autonomy. Capping at low confidence.",k:true,ms:1300},
+  {a:"Red-team",r:"disconfirm",t:"Killed the perks direction (selection, not cause). Surfaced sharper angle: does remote status moderate the meeting-load penalty?",ms:1500},
+  {a:"Editorial",r:"iterate?",t:"Bar met for 2 directions; looped once for a tenure control, then terminated.",ms:1150},
+];
+const DIRS=[
+  {t:"Does weekly meeting load causally reduce output, separable from seniority?",tier:"high",cls:"",why:"Real negative effect in-data (β=−1.40) plus a genuine literature gap. Strongest novelty × feasibility.",n:.86,f:.78,d:.82,r:.80},
+  {t:"Does remote vs. hybrid status moderate the autonomy → output effect?",tier:"high",cls:"",why:"Untested with individual-level outcome data; dataset has the variables to support it.",n:.74,f:.80,d:.76,r:.72},
+  {t:"Is perceived autonomy a primary driver of monthly output?",tier:"med",cls:"flagged",why:"Well-supported but low novelty — the review already establishes it. Strong for feasibility-first, weak as a novel contribution.",n:.34,f:.88,d:.85,r:.70},
+  {t:"Do office perks improve output?",tier:"low",cls:"dead",why:"Dead-end. Positive alone, but disappears once autonomy is controlled — a confound, not a cause.",n:.40,f:.55,d:.30,r:.18},
+];
+const VERDICT="Endorsed 2 of 5 candidates. Confirmed the genuine effects, reported the null on team size, and caught the office-perks confound before it became a finding.";
+
+// segmented controls (cosmetic — flips active state)
+document.querySelectorAll('.seg').forEach(seg=>{
+  seg.addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b)return;
+    seg.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+  });
+});
+
+const run=document.getElementById('run');
+const stream=document.getElementById('stream');
+const report=document.getElementById('report');
+const reduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+let busy=false;
+const sleep=ms=>new Promise(r=>setTimeout(r,reduced?Math.min(ms,100):ms));
+
+async function go(){
+  if(busy)return; busy=true;
+  run.disabled=true; run.innerHTML='<span>⏳</span> Running…';
+  stream.classList.remove('show'); report.classList.remove('show');
+  stream.innerHTML=''; report.innerHTML='';
+  stream.classList.add('show');
+
+  STAGES.forEach((s,i)=>{
+    const el=document.createElement('div');
+    el.className='pstage'; el.id='ps'+i;
+    el.innerHTML=`<div class="pm"><div class="o"></div></div>
+      <div><div class="pa">${s.a}<span class="pr">${s.r}</span></div>
+      <div class="pt ${s.k?'kill':''}"></div></div>`;
+    stream.appendChild(el);
+  });
+
+  for(let i=0;i<STAGES.length;i++){
+    const s=STAGES[i], el=document.getElementById('ps'+i), pt=el.querySelector('.pt');
+    el.classList.add('on');
+    el.scrollIntoView({block:'nearest',behavior:reduced?'auto':'smooth'});
+    await sleep(360);
+    if(s.code){
+      for(const ln of s.lines){const d=document.createElement('div');d.innerHTML=ln;d.style.marginTop='3px';pt.appendChild(d);await sleep(520);}
+    } else { pt.innerHTML=s.t; }
+    await sleep(s.ms*0.45);
+    el.classList.remove('on'); el.classList.add('ok');
+  }
+  await sleep(280);
+  renderReport();
+  busy=false; run.disabled=false; run.innerHTML='<span>▶</span> Run again';
+}
+
+function bar(l,v){return `<div class="bar"><div class="bl"><span>${l}</span><span>${v.toFixed(2)}</span></div><div class="trk"><div class="fl" data-w="${v*100}"></div></div></div>`;}
+
+function renderReport(){
+  let h=`<div class="rep-head"><h3>Research-opportunity report</h3><span class="dl">↓ report.pdf</span></div>
+  <div class="rep-h4">Ranked directions · balanced preset</div>`;
+  DIRS.forEach(d=>{
+    const tn={high:'High confidence',med:'Medium',low:'Dead-end'}[d.tier];
+    h+=`<div class="dir ${d.cls}"><div class="dh2"><div class="dt">${d.t}</div><span class="tier ${d.tier}">${tn}</span></div>
+    <div class="dwhy">${d.why}</div>
+    <div class="bars">${bar('Novelty',d.n)}${bar('Feasibility',d.f)}${bar('Data fit',d.d)}${bar('Robustness',d.r)}</div></div>`;
+  });
+  h+=`<div class="verdict"><b>Verdict.</b> ${VERDICT}</div>`;
+  report.innerHTML=h; report.classList.add('show');
+  requestAnimationFrame(()=>setTimeout(()=>document.querySelectorAll('.fl').forEach(f=>f.style.width=f.dataset.w+'%'),60));
+  report.scrollIntoView({block:'nearest',behavior:reduced?'auto':'smooth'});
+}
+run.addEventListener('click',go);
+</script>
+</body>
+</html>
