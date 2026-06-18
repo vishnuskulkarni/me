@@ -1,6 +1,18 @@
 // TODO Add a couple lines about each project
 const data = [
   {
+    title: 'MARS — Multi-Agent Research System',
+    subtitle: 'Python, Claude API, Multi-Agent Systems, Streamlit',
+    link: '/mars-demo/',
+    image: '/images/projects/mars.svg',
+    date: '2026-01-01',
+    desc:
+      'An internal research tool that scores research directions on real evidence, runs '
+      + 'actual analysis on the data, and flags dead ends. A team of Claude agents (literature, '
+      + 'web scout, data analyst, hypothesis, critique, red-team) debate and rank candidate '
+      + 'directions, reporting the evidence behind each. Click to try an interactive demo.',
+  },
+  {
     title: 'Lunar Lander Problem',
     subtitle: 'Python, OpenAI Gym, Reinforcement Learning',
     image: '/images/projects/lunarlander.png',
